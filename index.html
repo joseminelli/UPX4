@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protótipo de Mobilidade</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h3>Mapa Interativo de Mobilidade</h3>
+
+    <div id="controles">
+        <b>Filtros Personalizados</b>
+        <div>
+            <input type="checkbox" id="filtroBicicletas" checked>
+            <label for="filtroBicicletas">Estações de Bicicleta (Mockup)</label>
+        </div>
+        <div>
+            <input type="checkbox" id="filtroCiclovias" checked>
+            <label for="filtroCiclovias">Ciclovias (Mockup)</label>
+        </div>
+         <div>
+            <input type="checkbox" id="filtroOnibus" checked>
+            <label for="filtroOnibus">Linha de Ônibus (Mockup)</label>
+        </div>
+        <hr>
+        <b>Consulta de Linhas (Mockup)</b>
+        <div>
+            <input type="text" id="buscaLinha" placeholder="Digite '5106' ou 'Savassi'">
+            <button id="btnBuscar">Buscar</button>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="dados.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
