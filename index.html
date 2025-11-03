@@ -30,7 +30,43 @@
         </div>
     </div>
 
+    <div id="comparador" class="painel-mockup" style="display: none;">
+        <h4>Comparador de Deslocamento</h4>
+        <p>Rota: Centro -> Savassi (Simulado)</p>
+        <div class="opcao">
+            <b>1. Ônibus (Linha 5106)</b>
+            <ul>
+                <li>Tempo: 25 min</li>
+                <li>Custo: R$ 4,50</li>
+                <li>Impacto CO²: Médio</li>
+            </ul>
+        </div>
+        <div class="opcao">
+            <b>2. Bicicleta + Ciclovia</b>
+            <ul>
+                <li>Tempo: 18 min</li>
+                <li>Custo: R$ 2,90 (compartilhada)</li>
+                <li>Impacto CO²: Nulo</li>
+            </ul>
+        </div>
+        <button id="btnFecharComparador">Fechar</button>
+    </div>
+
     <div id="map"></div>
+
+    <div id="legenda" class="painel-mockup">
+        <h4>Legenda</h4>
+        <div class="legenda-item">
+            <span class="cor-bicicleta"></span> Estação de Bicicleta
+        </div>
+        <div class="legenda-item">
+            <span class="cor-ciclovia"></span> Ciclovia
+        </div>
+        <div class="legenda-item">
+            <span class="cor-onibus"></span> Rota de Ônibus
+        </div>
+    </div>
+
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="dados.js"></script>
