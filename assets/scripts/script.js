@@ -43,7 +43,7 @@ function carregarDadosLocais() {
 
   dadosBicicletas.forEach((element) => {
     var marker = L.marker([element.lat, element.lon], { icon: bikeIcon });
-    
+
     var disponibilidade = Math.floor(Math.random() * (element.capacity + 1));
 
     let classeDisponibilidade = "dispo-alta";
@@ -238,11 +238,21 @@ btnMobileToggle.addEventListener("click", () => {
     comparador.style.display === "block" ||
     comparador.classList.contains("ativo")
   ) {
+    btnMobileToggle.innerText = "☰";
+    btnMobileToggle.classList.remove("ativo");
     fecharComparador();
     return;
   }
 
   controles.classList.toggle("ativo");
+
+  if (controles.classList.contains("ativo")) {
+    btnMobileToggle.innerText = "✕";
+    btnMobileToggle.classList.add("ativo");
+  } else {
+    btnMobileToggle.innerText = "☰";
+    btnMobileToggle.classList.remove("ativo");
+  }
 });
 
 layerCiclovias.clearLayers();

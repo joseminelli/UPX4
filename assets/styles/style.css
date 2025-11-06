@@ -422,7 +422,12 @@ option {
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   font-size: 1.5rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transform: translateY(0);
+  transition: all 0.4s ease;
+}
+
+#btnMobileToggle.ativo {
+  transform: translateY(-430px);
 }
 
 #btnMobileToggle:hover {
@@ -448,7 +453,7 @@ option {
     right: 0;
     bottom: 0;
     width: 100%;
-    max-height: 60vh;
+    max-height: 65vh;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     border-radius: 24px 24px 0 0;
