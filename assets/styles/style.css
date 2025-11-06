@@ -175,6 +175,11 @@ option {
   font-weight: 700;
 }
 
+.capacidade-info {
+  font-size: 0.85em;
+  color: #6b7280;
+}
+
 #btnLocalizacao {
   background-color: #0369a1;
   color: white;

@@ -30,18 +30,32 @@ function toggleLayer(checked, layer) {
 }
 
 function carregarDadosLocais() {
+  const bikeIconSVG =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0284c7" width="28px" height="28px"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8-3.3 3.3-1.4-1.4.8-.8 1.7 1.7zM20.4 10.5c-2.2.3-4.2-1.3-4.5-3.5-.3-2.2 1.3-4.2 3.5-4.5 2.2-.3 4.2 1.3 4.5 3.5.3 2.2-1.3 4.2-3.5 4.5zm-1-6.9c-.8.2-1.4 1-1.5 1.8-.2.8.2 1.6.9 2 .8.4 1.7.2 2.1-.6s.2-1.7-.6-2.1c-.5-.2-1-.2-1.5-.1zM10 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg>';
+
+  const bikeIcon = L.divIcon({
+    html: bikeIconSVG,
+    className: "bike-station-icon",
+    iconSize: [28, 28],
+    iconAnchor: [14, 28],
+    popupAnchor: [0, -28],
+  });
+
   dadosBicicletas.forEach((element) => {
-    var marker = L.marker([element.lat, element.lon]);
-    var disponibilidade = Math.floor(Math.random() * 10);
+    var marker = L.marker([element.lat, element.lon], { icon: bikeIcon });
+    
+    var disponibilidade = Math.floor(Math.random() * (element.capacity + 1));
 
     let classeDisponibilidade = "dispo-alta";
     if (disponibilidade < 5) classeDisponibilidade = "dispo-media";
     if (disponibilidade < 2) classeDisponibilidade = "dispo-baixa";
 
     var popupContent = `
-  <b>${element.tags.name || "Estação"} (simulada)</b><br>
-  Disponíveis: <strong class="${classeDisponibilidade}">${disponibilidade}</strong> bicicletas
- `;
+      <b>${element.tags.name || "Estação"} (simulada)</b><br>
+      Disponíveis: <strong class="${classeDisponibilidade}">${disponibilidade}</strong>
+      <span class="capacidade-info">/ ${element.capacity} vagas</span>
+    `;
+
     marker.bindPopup(popupContent).addTo(layerBicicletas);
   });
 }
