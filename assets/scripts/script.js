@@ -77,6 +77,27 @@ function exibirCicloviaCorrespondente(nomeCiclovia) {
   }
 }
 
+map.on("click", () => {
+  if (window.innerWidth > 768) {
+    return;
+  }
+
+  const controles = document.getElementById("controles");
+  const comparador = document.getElementById("comparador");
+  const btnMobileToggle = document.getElementById("btnMobileToggle");
+
+  if (comparador.classList.contains("ativo")) {
+    fecharComparador();
+    btnMobileToggle.innerText = "☰";
+    btnMobileToggle.classList.remove("ativo");
+  }
+  else if (controles.classList.contains("ativo")) {
+    controles.classList.remove("ativo");
+    btnMobileToggle.innerText = "☰";
+    btnMobileToggle.classList.remove("ativo");
+  }
+});
+
 function atualizarComparador(linhasSelecionadas) {
   const painel = document.getElementById("comparador");
   const overlay = document.getElementById("overlay");
